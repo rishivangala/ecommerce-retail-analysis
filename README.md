@@ -1,4 +1,4 @@
-# Ecommerce Retail Customer Segmentation and Sales Analytics
+# Online Retail Customer Segmentation and Sales Analytics
 ## Overview
 This project analyzes customer purchasing behavior and product bundling opportunities using the UCI Online Retail Dataset. The goal is to uncover actionable insights for churn prevention, customer segmentation, and sales optimization through a combination of exploratory data analysis, RFM segmentation, and Market Basket Analysis.
 
