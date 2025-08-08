@@ -1,4 +1,4 @@
-# Online Retail Customer Segmentation and Sales Analytics
+# E-Commerce Customer Segmentation & Sales Analytics
 
 ## Overview
 This project analyzes customer purchasing behavior and product bundling opportunities using the **UCI Online Retail Dataset**.  
@@ -14,7 +14,7 @@ The goal is to uncover actionable insights for churn prevention, customer segmen
 - Discover product bundling opportunities via **Market Basket Analysis (Apriori Algorithm)**.
 - Build a **Power BI dashboard** to visualize customer behavior, revenue patterns, and product affinities.
 
-## Dataset (Important)
+## Dataset
 **Source:** UCI Machine Learning Repository  
 **Link:** [Online Retail Dataset](https://archive.ics.uci.edu/dataset/352/online+retail)  
 **Size:** 500,000+ transaction records  
@@ -29,7 +29,9 @@ The goal is to uncover actionable insights for churn prevention, customer segmen
 ## Models & Analysis
 
 ### RFM Segmentation
-Mapped numeric RFM codes to **clear, human-readable customer segments** for easier interpretation in the dashboard:
+Customers were scored on Recency, Frequency, and Monetary value (1–5) and mapped into the following segments:
+
+Mapped numeric RFM codes to **clear, human-readable customer segments** for easier interpretation in the dashboard.
 
 | Segment Name        | RFM Code Example(s) | Description |
 |---------------------|--------------------|-------------|
@@ -61,7 +63,19 @@ Insights from these rules can guide **cross-selling** strategies and promotional
 ---
 
 ## Dashboard Story
-This dashboard was designed for a UK-based online retailer, analyzing **revenue drivers**, specifically **Product Pairings**, **Customer Segments**, and **Overall Revenue Trends**.
+This dashboard was designed for a UK-based online retailer, analyzing **revenue drivers**, specifically **Product Pairings**, **Customer Segments**, and **Overall Revenue Trends**. The dashboard allows stakeholders to filter by customer segment, country, and date range, enabling interactive exploration of revenue trends, product affinities, and customer profiles.
+
+### 1. Overall Dashboard
+![Overall Dashboard](screenshots/Online-Retail-Dashboard-Analytics.png)
+
+### 2. United Kingdom View
+![UK View](screenshots/Online-Retail-Dashboard-Analytics-UK.png)
+
+### 3. Potential Loyalists Segment
+![Potential Loyalists](screenshots/Online-Retail-Dashboard-Analytics-Potential-Loyalists-Customer-Segment.png)
+
+### 4. Top 10 Highest-Lift Product Pairings
+![Product Pairings](screenshots/Online-Retail-Dashboard-Analytics-Product-Pairings.png)
 
 ## Workflow
 1. **Data Cleaning** – Removed invalid entries, filtered canceled orders, standardized formats, and filled missing product descriptions using the most frequent (mode) description for each StockCode.
