@@ -72,7 +72,7 @@ This dashboard was designed for a UK-based online retailer, analyzing **revenue 
 ![UK View](Dashboard-Screenshots/Online-Retail-Dashboard-Analytics-UK.png)
 
 ### 3. Potential Loyalists Segment
-![Potential Loyalists](Dashboard-Screenshots/Online-Retail-Dashboard-Analytics-Potential-Loyalists-Customer-Segment.png)
+![Potential Loyalists](Dashboard-Screenshots/Online-Retail-Dashboard-Analytics-Potential-Loyalists-Customer_Segment.png)
 
 ### 4. Top 10 Highest-Lift Product Pairings
 ![Product Pairings](Dashboard-Screenshots/Product-Pairings.png)
