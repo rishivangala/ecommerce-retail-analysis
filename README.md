@@ -64,7 +64,7 @@ Insights from these rules can guide **cross-selling** strategies and promotional
 This dashboard was designed for a UK-based online retailer, analyzing **revenue drivers**, specifically **Product Pairings**, **Customer Segments**, and **Overall Revenue Trends**.
 
 ## Workflow
-1. **Data Cleaning** – Removed missing/invalid entries, standardized formats, and filtered canceled orders.
+1. **Data Cleaning** – Removed invalid entries, filtered canceled orders, standardized formats, and filled missing product descriptions using the most frequent (mode) description for each StockCode.
 2. **Exploratory Analysis** – Identified revenue trends, top countries, and best-selling products.
 3. **Customer Segmentation** – Applied RFM analysis and mapped numeric scores to descriptive segment names.
 4. **Product Pairing Analysis** – Used Apriori algorithm to find high-lift product associations.
