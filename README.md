@@ -1,73 +1,90 @@
 # Online Retail Customer Segmentation and Sales Analytics
+
 ## Overview
-This project analyzes customer purchasing behavior and product bundling opportunities using the UCI Online Retail Dataset. The goal is to uncover actionable insights for churn prevention, customer segmentation, and sales optimization through a combination of exploratory data analysis, RFM segmentation, and Market Basket Analysis.
+This project analyzes customer purchasing behavior and product bundling opportunities using the **UCI Online Retail Dataset**.  
+The goal is to uncover actionable insights for churn prevention, customer segmentation, and sales optimization through a combination of:
+- Exploratory Data Analysis (EDA)
+- RFM Segmentation
+- Market Basket Analysis
+- Interactive Power BI Dashboard
 
 ## Objectives
-Identify revenue trends across time periods and customer groups.
-
-Segment customers using RFM (Recency, Frequency, Monetary) analysis to detect high-value and churn-risk segments.
-
-Discover product bundling opportunities via Market Basket Analysis (Apriori Algorithm).
-
-Build a Power BI dashboard to visualize customer behavior, revenue patterns, and product affinities.
+- Identify revenue trends across time periods and customer groups.
+- Segment customers using **RFM (Recency, Frequency, Monetary)** analysis to detect high-value and churn-risk segments.
+- Discover product bundling opportunities via **Market Basket Analysis (Apriori Algorithm)**.
+- Build a **Power BI dashboard** to visualize customer behavior, revenue patterns, and product affinities.
 
 ## Dataset (Important)
-Source: UCI Machine Learning Repository
+**Source:** UCI Machine Learning Repository  
+**Link:** [Online Retail Dataset](https://archive.ics.uci.edu/dataset/352/online+retail)  
+**Size:** 500,000+ transaction records  
 
-Link: [Online Retail Dataset](https://archive.ics.uci.edu/dataset/352/online+retail)
-
-Size: 500,000+ transaction records
-
-Features: InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country
+**Features:**  
+`InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`
 
 ## Tech Stack
-Python (Pandas, NumPy, Seaborn, Matplotlib, mlxtend)
-
-Market Basket Analysis: Apriori Algorithm (mlxtend)
-
-Customer Segmentation: RFM Analysis
-
-Visualization: Power BI (KPI cards, trend charts, segmentation visuals)
-
-## Exploratory Analysis
-Key areas explored:
-
-Revenue Trends: Monthly and daily sales patterns
-
-Product Patterns: Top-selling products by quantity and revenue
-
-Customer Behavior: Purchase frequency, monetary value, recency
-
-Order Patterns: Weekday and hourly trends in transactions
+- **Python**: Pandas, NumPy, Seaborn, Matplotlib, mlxtend
+- **Power BI**: Data modeling, DAX measures, interactive dashboard design
 
 ## Models & Analysis
-### RFM Segmentation
-Segmented customers into categories such as High-Value, New Buyers, and At-Risk (Churn-Prone)
 
-Focused on 511 & 411 segments (high recency but low frequency & value) for churn prevention strategies
+### RFM Segmentation
+Mapped numeric RFM codes to **clear, human-readable customer segments** for easier interpretation in the dashboard:
+
+| Segment Name        | RFM Code Example(s) | Description |
+|---------------------|--------------------|-------------|
+| **Champions**       | 555, 554, 545      | Purchased recently, frequently, and with high spend |
+| **Loyal Customers** | 45X, 44X           | Frequent repeat buyers with good monetary value |
+| **Potential Loyalists** | 5X3, 4X4, 5X2   | Recent buyers who need more engagement to become loyal |
+| **At Risk**         | 3X2, 2X3           | Used to buy often, but haven’t purchased recently |
+| **Lost Customers**  | 1X1, 1X2           | No recent activity, low frequency, low spend |
+| **Others**          | All remaining combinations | Mixed buying behavior |
+
+*(X indicates any score for that position)*
+
+This conversion allowed the dashboard slicers and visuals to use descriptive labels like **"Potential Loyalists"** instead of raw codes like `511`.
+
+---
 
 ### Market Basket Analysis
-Used the Apriori Algorithm to identify product pairings with high lift (>50)
+Applied the **Apriori algorithm** to uncover strong product pairings based on **lift** and **support**.
 
-Found actionable bundling insights (e.g., Regency kitchenware, Playhouse sets, party supplies)
+- **Lift**: Measures the strength of a rule relative to random chance (Lift > 1 indicates a strong association).  
+- **Support**: Indicates how frequently the paired products appear together.
 
-Built a Network Graph to visualize co-purchase relationships
+**Example:**  
+`"REGENCY MILK JUG PINK"` → `"REGENCY SUGAR BOWL GREEN"` had one of the highest lifts, meaning customers who buy one are very likely to buy the other.
 
-### Key Results
-40% of customers are recent one-time buyers, highlighting churn risk if not re-engaged
+**Use Case:**  
+Insights from these rules can guide **cross-selling** strategies and promotional bundles to boost revenue.
 
-Product bundles with highest lift include kitchenware sets and party accessories
+---
 
-RFM segmentation identified top-spending segments and retention opportunities
+## Dashboard Story
+This dashboard was designed for a UK-based online retailer, analyzing **revenue drivers**, specifically **Product Pairings**, **Customer Segments**, and **Overall Revenue Trends**.
 
-Power BI Dashboard includes KPIs, revenue trends, customer segmentation visuals, and market basket rules
+## Workflow
+1. **Data Cleaning** – Removed missing/invalid entries, standardized formats, and filtered canceled orders.
+2. **Exploratory Analysis** – Identified revenue trends, top countries, and best-selling products.
+3. **Customer Segmentation** – Applied RFM analysis and mapped numeric scores to descriptive segment names.
+4. **Product Pairing Analysis** – Used Apriori algorithm to find high-lift product associations.
+5. **Dashboard Creation** – Built an interactive Power BI dashboard with KPIs, trend charts, and segment-based filters.
 
-## Next Steps
-Integrate AI agents for real-time product recommendation simulations
+**Key Findings:**
+- The online retailer generated **$8.89M in revenue**, with over **18.53K orders** from **4.34K customers**, averaging **$479.53 per order**.
+- Revenue showed an **upward trend throughout 2011**, peaking in November before experiencing a sudden drop in December.
+- The **United Kingdom accounted for the majority of total revenue**, likely due to the retailer’s domestic market presence.
+- Customer segmentation revealed that **Potential Loyalists** (recent purchasers with moderate frequency and spend) and **"Other"** customers (mid-range across RFM scores) made up the majority of the customer base.
+- **Potential Loyalists generated the highest share of revenue**, indicating strong retention opportunities.
+- Market Basket Analysis identified high-lift product pairings, such as **“Regency Milk Jug Pink” with “Regency Sugar Bowl Green”** and **“Poppys Playhouse Kitchen” with “Poppys Playhouse Bedroom”**, suggesting bundling opportunities.
 
-Expand Market Basket Analysis with deeper product categorization
-
-Deploy dashboard insights for sales strategy optimization
+## Business Recommendations
+- **Focus on the UK market** for marketing campaigns and product promotions, given its revenue dominance.
+- **Launch loyalty and rewards programs** targeting Potential Loyalists to convert them into high-value repeat buyers.
+- **Create product bundles** based on top high-lift pairings to increase average order value.
+- **Investigate December revenue drop** to determine if it was caused by seasonality, stock issues, or marketing gaps.
+- **Nurture “Other” customers** through personalized offers to push them toward higher engagement segments.
+- **Apply targeted churn prevention** for Lost Customers by offering discounts or win-back campaigns.
 
 ## Author
 Rishi Vangala
